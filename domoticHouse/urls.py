@@ -3,5 +3,5 @@ from domoticHouse import views
 
 
 urlpatterns = [
-    path("",views.JsonResponse,name="response"),
+    path("", views.returnAJSON, name="response"),
 ]
