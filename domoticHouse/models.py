@@ -5,8 +5,8 @@ from django.db import models
 
 class Room(models.Model):
     room_name = models.CharField(max_length=60, help_text="Enter a room name")
-    temperature = models.ForeignKey("TemperatureControl",on_delete=models.SET_NULL, null=True)
-    automated_windows = models.ForeignKey("AutomatedWindows",on_delete=models.SET_NULL, null=True)
+    temperature = models.OneToOneField("TemperatureControl",on_delete=models.SET_NULL, null=True)
+    automated_windows = models.OneToOneField("AutomatedWindows",on_delete=models.SET_NULL, null=True)
     
     def __str__(self):
         return self.room_name
@@ -34,3 +34,7 @@ class AutomatedWindows(models.Model):
         default='f',
         help_text='Type of Automated Window',
     )
+    
+    
+    
+    
